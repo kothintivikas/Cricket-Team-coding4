@@ -10,7 +10,7 @@ app.use(express.json());
 const dbPath = path.join(__dirname, "cricketTeam.db");
 
 let db = null;
-const instalizeDBAndServer = async () => {
+const initializeDBAndServer = async () => {
   try {
     db = await open({
       fileName: dbPath,
@@ -25,7 +25,8 @@ const instalizeDBAndServer = async () => {
   }
 };
 
-instalizeDBAndServer();
+initializeDBAndServer();
+
 const convertDbObjectToResponseObject = (dbObject) => {
   return {
     playerId: dbObject.player_id,
